@@ -22,3 +22,19 @@ void print_matrix(Matrix* const m) {
         printf("\n");
     }
 }
+
+/* Sum to nth diagonal elements of a square matrix */
+double sum_diag(Matrix* const m, int n) {
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += m->data[i * m->col + i];
+    }
+    return sum;
+
+    // test sum_diag
+    // Matrix m1 = {3, 3, (double[]){1, 2, 3, 4, 5, 6, 7, 8, 9}};
+    // double sum = sum_diag(&m1, 3);
+    // printf("Sum of diagonal elements: %f\n", sum);
+    // double sum2 = sum_diag(&m1, 2);
+    // printf("Sum of diagonal elements: %f\n", sum2);
+}

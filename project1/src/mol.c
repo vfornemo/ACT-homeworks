@@ -30,7 +30,6 @@ void mol_init(Mol* const m, char* filename) {
     printf("Number of 2e integrals: %ld\n", m->n_2e_int);
     for (int i = 0; i < m->n_2e_int; i++) {
         double integ = get_nth_eri(i, m);
-        printf("Value: %f\n", integ);
     }
 
     // close file
@@ -47,15 +46,37 @@ void mol_init(Mol* const m, char* filename) {
 void mol_destruct(Mol* const m) {
     if (m->e_nuc != NULL) {
         free(m->e_nuc);
-	m->e_nuc = NULL;
+	    m->e_nuc = NULL;
     }
     if (m->eri_index != NULL) {
         free(m->eri_index);
-	m->eri_index = NULL;
+	    m->eri_index = NULL;
     }
     if (m->eri_value != NULL) {
         free(m->eri_value);
-	m->eri_value = NULL;
+	    m->eri_value = NULL;
+    }
+    if (m->h_core != NULL) {
+        free(m->h_core->data);
+        m->h_core->data = NULL;
+        free(m->h_core);
+        m->h_core = NULL;
+    }
+    if (m->h_core_sum != NULL) {
+        free(m->h_core_sum);
+        m->h_core_sum = NULL;
+    }
+    if (m->eri_sum != NULL) {
+        free(m->eri_sum);
+        m->eri_sum = NULL;
+    }
+    if (m->e_elec != NULL) {
+        free(m->e_elec);
+        m->e_elec = NULL;
+    }
+    if (m->e_hf != NULL) {
+        free(m->e_hf);
+        m->e_hf = NULL;
     }
     return;
 }

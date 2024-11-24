@@ -14,3 +14,4 @@ typedef struct {
 #endif 
 
 void print_matrix(Matrix* const m);
+double sum_diag(Matrix* const m, int n);
