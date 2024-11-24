@@ -18,7 +18,7 @@
 //     }
 // }
 
-int read_nucleus_repulsion(trexio_t* const trexio_file, Mol* const m) {
+void read_nucleus_repulsion(trexio_t* const trexio_file, Mol* const m) {
     trexio_exit_code rc; // TREXIO return code
     m->e_nuc = malloc(sizeof(double)); // Variable where the energy is read
     if (m->e_nuc == NULL) {
@@ -31,12 +31,11 @@ int read_nucleus_repulsion(trexio_t* const trexio_file, Mol* const m) {
         fprintf(stderr, "TREXIO Error reading nuclear repulsion energy:\n%s\n",
         trexio_string_of_error(rc));
         exit(1);
-    } else {
-        return 0;
-    }
+    } 
+    return;
 }
 
-int read_electron_up_num(trexio_t* const trexio_file, Mol* const m) {
+void read_electron_up_num(trexio_t* const trexio_file, Mol* const m) {
     trexio_exit_code rc; // TREXIO return code
     // int32_t n_up; // Variable where the number of up electrons is read
     rc = trexio_read_electron_up_num(trexio_file, &m->n_up);
@@ -45,12 +44,11 @@ int read_electron_up_num(trexio_t* const trexio_file, Mol* const m) {
         fprintf(stderr, "TREXIO Error reading number of up electrons:\n%s\n",
         trexio_string_of_error(rc));
         exit(1);
-    } else {
-        return 0;
     }
+    return;
 }
 
-int read_mo_num(trexio_t* const trexio_file, Mol* const m) {
+void read_mo_num(trexio_t* const trexio_file, Mol* const m) {
     trexio_exit_code rc; // TREXIO return code
     // int32_t mo_num; // Variable where the number of MOs is read
     rc = trexio_read_mo_num(trexio_file, &m->mo_num);
@@ -59,12 +57,11 @@ int read_mo_num(trexio_t* const trexio_file, Mol* const m) {
         fprintf(stderr, "TREXIO Error reading number of MOs:\n%s\n",
         trexio_string_of_error(rc));
         exit(1);
-    } else {
-        return 0;
     }
+    return;
 }
 
-int read_mo_1e_int_h_core(trexio_t* const trexio_file, Mol* const m) {
+void read_mo_1e_int_h_core(trexio_t* const trexio_file, Mol* const m) {
     trexio_exit_code rc; // TREXIO return code
     // double* data; // Variable where the MO 1e integrals are read
     m->h_core = malloc(sizeof(Matrix));
@@ -83,12 +80,11 @@ int read_mo_1e_int_h_core(trexio_t* const trexio_file, Mol* const m) {
         fprintf(stderr, "TREXIO Error reading MO 1e integrals:\n%s\n",
         trexio_string_of_error(rc));
         exit(1);
-    } else {
-        return 0;
     }
+    return;
 }
 
-int read_mo_2e_int_eri_size(trexio_t* const trexio_file, Mol* const m) {
+void read_mo_2e_int_eri_size(trexio_t* const trexio_file, Mol* const m) {
     trexio_exit_code rc; // TREXIO return code
     // int64_t n_2e_int; // Variable where the number of 2e integrals is read
     rc = trexio_read_mo_2e_int_eri_size(trexio_file, &m->n_2e_int);
@@ -97,12 +93,11 @@ int read_mo_2e_int_eri_size(trexio_t* const trexio_file, Mol* const m) {
         fprintf(stderr, "TREXIO Error reading number of 2e integrals:\n%s\n",
         trexio_string_of_error(rc));
         exit(1);
-    } else {
-        return 0;
     }
+    return;
 }
 
-int read_mo_2e_int_eri(trexio_t* const trexio_file, Mol* const m) {
+void read_mo_2e_int_eri(trexio_t* const trexio_file, Mol* const m) {
 
     read_mo_2e_int_eri_size(trexio_file, m);
     // allocate memory
@@ -126,9 +121,8 @@ int read_mo_2e_int_eri(trexio_t* const trexio_file, Mol* const m) {
         fprintf(stderr, "TREXIO Error reading MO 2e integrals:\n%s\n",
         trexio_string_of_error(rc));
         exit(1);
-    } else {
-        return 0;
     }
+    return;
 }
 
 energy get_nth_eri(int64_t n, Mol* const m) {

@@ -21,4 +21,4 @@ typedef struct {
     
 #endif 
 
-int mol_init(Mol* const m);
+int mol_init(Mol* const m, char* filename);
