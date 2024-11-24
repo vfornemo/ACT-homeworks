@@ -4,7 +4,7 @@
 #include "matrix.h"
 #include "reader.h"
 
-int mol_init(Mol* const m, char* filename) {
+void mol_init(Mol* const m, char* filename) {
     // initialize mol struct
     trexio_exit_code rc;
     trexio_t* trexio_file = trexio_open(filename, 'r', TREXIO_AUTO, &rc);
@@ -41,5 +41,22 @@ int mol_init(Mol* const m, char* filename) {
     }
     trexio_file = NULL;
 
-    return 0;
+    return;
 }
+
+void mol_destruct(Mol* const m) {
+    if (m->e_nuc != NULL) {
+        free(m->e_nuc);
+	m->e_nuc = NULL;
+    }
+    if (m->eri_index != NULL) {
+        free(m->eri_index);
+	m->eri_index = NULL;
+    }
+    if (m->eri_value != NULL) {
+        free(m->eri_value);
+	m->eri_value = NULL;
+    }
+    return;
+}
+    
