@@ -7,11 +7,18 @@
 #include "hf.h"
 #include "mp2.h"
 
-int main() {
+int main(int argc, char* argv[]) {
+
+    if (argc != 2) {
+        printf("Error: wrong number of arguments provided\n");
+        exit(1);
+    } else {
+        printf("Reading file: %s\n", argv[1]);
+    }
+    char* path = argv[1];
 
     // initialize mol struct
     Mol m = {0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0}; 
-    char* path = "./data/co2.h5";
     mol_init(&m, path);
 
     // HF kernel
