@@ -14,7 +14,11 @@ E_{\text{MP2}} = E_{\text{HF}} +
 where the $E_{\text{HF}}$ is the Hartree-Fock energy calculated by the following formula:
 
 ```math
+<<<<<<< HEAD
 E_{\text{HF}} = E_{NN} + 2\sum_{i=1}^{N_{\text{occ}}}\langle i|\hat{h}|i\rangle + \sum_{i=1}^{N_{\text{occ}}}\sum_{j=1}^{N_{\text{occ}}} \left(2\langle ij|ij\rangle - \langle ij|ji\rangle\right)
+=======
+E_{\text{HF}} = E_{NN} + 2\sum_{i=1}^{N_{\text{occ}}}\langle i|h|i\rangle + \sum_{i=1}^{N_{\text{occ}}}\sum_{j=1}^{N_{\text{occ}}} \left(2\langle ij|ij\rangle - \langle ij|ji\rangle\right)
+>>>>>>> e733ed20b70d9fc4875d3143f9fafd01f263c364
 ```
 
 ## Dependencies
