@@ -98,3 +98,16 @@ void read_mo_2e_int_eri(trexio_t* const trexio_file, Mol* const m) {
     }
     return;
 }
+
+void read_mo_energy(trexio_t* const trexio_file, Mol* const m) {
+    trexio_exit_code rc;
+    m->e_mo = malloc(m->mo_num * sizeof(energy));
+    rc = trexio_read_mo_energy(trexio_file, m->e_mo);    
+    if (rc != TREXIO_SUCCESS) {
+        fprintf(stderr, "TREXIO Error reading MO energy\n%s\n",
+                        trexio_string_of_error(rc));
+        exit(1);
+    }
+    return;
+}
+

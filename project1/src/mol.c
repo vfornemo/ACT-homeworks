@@ -24,14 +24,14 @@ void mol_init(Mol* const m, char* filename) {
     printf("Number of MOs: %d\n", m->mo_num);
     // read MO 1e integrals
     read_mo_1e_int_h_core(trexio_file, m);
-    print_matrix(m->h_core, m->mo_num, m->mo_num);
+    // print_matrix(m->h_core, m->mo_num, m->mo_num);
     // read number of 2e integrals
     read_mo_2e_int_eri(trexio_file, m);
     printf("Number of 2e integrals: %ld\n", m->n_2e_int);
     // for (int i = 0; i < m->n_2e_int; i++) {
     //     double integ = get_nth_eri(i, m);
     // }
-
+    read_mo_energy(trexio_file, m);
     // close file
     rc = trexio_close(trexio_file);
     if (rc != TREXIO_SUCCESS) {
@@ -55,6 +55,14 @@ void mol_destruct(Mol* const m) {
     if (m->h_core != NULL) {
         free(m->h_core);
         m->h_core = NULL;
+    }
+    if (m->eri_seq != NULL) {
+        free(m->eri_seq);
+        m->eri_seq = NULL;
+    }
+    if (m->e_mo != NULL) {
+        free(m->e_mo);
+        m->e_mo = NULL;
     }
     return;
 }
@@ -87,10 +95,14 @@ void gen_eri_index(Mol* const m) {
             printf("warning: index condition not satisfied\n");
         } else {
             int idx = index_2e(i, j, k, l, m->mo_num);
-            printf("i, j, k, l, idx = %d, %d, %d, %d, %d\n", i, j, k, l, idx);
+            // printf("i, j, k, l, idx = %d, %d, %d, %d, %d\n", i, j, k, l, idx);
             eri[idx] = m->eri_value[n];
         }
     }
     m->eri_seq = eri;
     return;
+}
+
+inline energy get_eri_energy(Mol* const m, int32_t i, int32_t j, int32_t a, int32_t b) {
+    return m->eri_seq[index_2e(m->mo_num - i, m->mo_num - a, m->mo_num - j, m->mo_num - b, m->mo_num)];
 }

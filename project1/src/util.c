@@ -30,17 +30,13 @@ double sum_diag(double* const m, int n, int order) {
     // printf("Sum of diagonal elements: %f\n", sum2);
 }
 
-
-
-int index_2e(int i, int j, int k, int l, int n) {
+inline int32_t index_2e(int i, int j, int k, int l, int n) {
     return (k - 1) * (n - 1) - (k - 1) * (k - 2) / 2 + l 
         + n * (n + 1) * (j - 1) / 2 - j * (j - 1) / 2 
         + (i - 1) * (n * (n * (n - 1) / 2 + 1) - j * (n - 1) - 1) 
         + (i - 1) * (i - 2) / 2 * (j - (n * (3 * n - 7) / 2 - 4)) 
         + (i - 1) * (i - 2) * (i - 3) / 2 * (n - 2) - (i - 1) * (i - 2) * (i - 3) * (i - 4) / 8;
 }
-
-
 
 
 /* 

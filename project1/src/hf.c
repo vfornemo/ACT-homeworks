@@ -66,6 +66,11 @@ void get_eri_sum(Mol* const m) {
                 break;
         }
     }
+    // for (int32_t i = 0; i < m->n_up; ++i) {
+    //     for (int32_t j = i; j < m->n_up; ++j) {
+    //         energy ijij
+    //     }
+    // }
     return;
 }
 

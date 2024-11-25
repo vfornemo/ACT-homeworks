@@ -17,4 +17,6 @@ void read_mo_2e_int_eri_size(trexio_t* const trexio_file, Mol* const m);
 
 void read_mo_2e_int_eri(trexio_t* const trexio_file, Mol* const m);
 
+void read_mo_energy(trexio_t* const trexio_file, Mol* const m);
+
 #endif

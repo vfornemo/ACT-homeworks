@@ -8,7 +8,7 @@ void print_matrix(double* const m, int row, int col);
 /* Sum to nth diagonal elements of a square matrix */
 double sum_diag(double* const m, int n, int order);
 
-int index_2e(int i, int j, int k, int l, int n);
+int32_t index_2e(int i, int j, int k, int l, int n);
 
 
 #endif

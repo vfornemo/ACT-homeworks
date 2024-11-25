@@ -25,6 +25,7 @@ typedef struct {
     // 1e integrals
     energy* h_core;
     // sum of diagonal elements of h_core
+    energy* e_mo;
     energy h_core_sum;
     // sum of eri values
     energy eri_sum;
@@ -32,7 +33,8 @@ typedef struct {
     energy e_elec;
     // HF energy
     energy e_hf;
-
+    // MP2 energy
+    energy e_mp2;
 } Mol;
 
 void mol_init(Mol* const m, char* filename);
@@ -41,6 +43,8 @@ void mol_destruct(Mol* const m);
 energy get_nth_eri(int64_t n, Mol* const m);
 void gen_eri_index(Mol* const m);
 
+energy get_eri_energy(Mol* const m, int32_t i, int32_t j, int32_t a, int32_t b);
 
-#endif 
+
+#endif
 
