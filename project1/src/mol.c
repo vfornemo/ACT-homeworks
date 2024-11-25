@@ -1,3 +1,14 @@
+/**
+ * @file mol.c
+ * @author Yifan Jiang, Tianyi Gao
+ * @brief This module contains the functions for Mol struct
+ * @version 1.0
+ * @date 2024-11-25
+ * 
+ * @copyright GNU Public License V3.0
+ * 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "mol.h"

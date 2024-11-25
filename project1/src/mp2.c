@@ -1,3 +1,14 @@
+/**
+ * @file mp2.c
+ * @author Yifan Jiang
+ * @brief This module contains the functions for MP2 energy calculation
+ * @version 1.0
+ * @date 2024-11-25
+ * 
+ * @copyright GNU Public License V3.0
+ * 
+ */
+
 #include "mp2.h"
 
 void cal_mp2_correlation(Mol* const m) {
