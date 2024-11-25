@@ -1,3 +1,6 @@
+#ifndef READER_H
+#define READER_H
+
 #include <stdio.h>
 #include <trexio.h>
 #include "mol.h"
@@ -14,6 +17,4 @@ void read_mo_2e_int_eri_size(trexio_t* const trexio_file, Mol* const m);
 
 void read_mo_2e_int_eri(trexio_t* const trexio_file, Mol* const m);
 
-energy get_nth_eri(int64_t n, Mol* const m);
-
-int index_2e(int i, int j, int k, int l, int n);
+#endif

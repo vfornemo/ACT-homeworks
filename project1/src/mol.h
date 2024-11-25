@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include "matrix.h"
 
 typedef double energy;
 
@@ -16,25 +15,32 @@ typedef struct {
     // number of 2e integrals
     int64_t n_2e_int;
     // nucleus repulsion energy
-    energy* e_nuc;
+    energy e_nuc;
     // 2e integrals
     int32_t* eri_index;
     // 2e integrals values
     energy* eri_value;
+    // 2e integrals in unique index sequence
+    energy* eri_seq;
     // 1e integrals
-    Matrix* h_core;
+    energy* h_core;
     // sum of diagonal elements of h_core
-    energy* h_core_sum;
+    energy h_core_sum;
     // sum of eri values
-    energy* eri_sum;
+    energy eri_sum;
     // electronic energy
-    energy* e_elec;
+    energy e_elec;
     // HF energy
-    energy* e_hf;
+    energy e_hf;
 
 } Mol;
-    
-#endif 
 
 void mol_init(Mol* const m, char* filename);
 void mol_destruct(Mol* const m);
+
+energy get_nth_eri(int64_t n, Mol* const m);
+void gen_eri_index(Mol* const m);
+
+
+#endif 
+
