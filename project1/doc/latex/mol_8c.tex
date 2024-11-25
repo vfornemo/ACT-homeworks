@@ -1,0 +1,134 @@
+\doxysection{src/mol.c File Reference}
+\hypertarget{mol_8c}{}\label{mol_8c}\index{src/mol.c@{src/mol.c}}
+
+
+This module contains the functions for \doxylink{structMol}{Mol} struct.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}mol.\+h"{}}\newline
+{\ttfamily \#include "{}reader.\+h"{}}\newline
+{\ttfamily \#include "{}util.\+h"{}}\newline
+Include dependency graph for mol.\+c\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mol_8c_a3e205777d94dc88fdb20547575684ee6}{mol\+\_\+init}} (\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const m, char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em initialize the \doxylink{structMol}{Mol} struct from the .h5 file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mol_8c_a82c0d13c43b68ef3ad97070cf3fef0cf}{mol\+\_\+destruct}} (\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const m)
+\begin{DoxyCompactList}\small\item\em destruct the \doxylink{structMol}{Mol} struct \end{DoxyCompactList}\item 
+energy \mbox{\hyperlink{mol_8c_acacea9c64c2c818ee7e5967fc15c9ee4}{get\+\_\+nth\+\_\+eri}} (int64\+\_\+t n, \mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const m)
+\begin{DoxyCompactList}\small\item\em get the nth 2e integral value \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mol_8c_a4b80c4cc41ff7488a5c0dc3ccc0664ab}{gen\+\_\+eri\+\_\+index}} (\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const m)
+\begin{DoxyCompactList}\small\item\em extract the 2e integral value into a 1D array, with unique index sequence \end{DoxyCompactList}\item 
+energy \mbox{\hyperlink{mol_8c_a13974e7f64fb0971aa96918deff7e011}{get\+\_\+eri\+\_\+energy}} (\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const m, int32\+\_\+t i, int32\+\_\+t j, int32\+\_\+t a, int32\+\_\+t b)
+\begin{DoxyCompactList}\small\item\em Given (ijab), return the 2e integral energy of (ia\texorpdfstring{$\vert$}{|}jb) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This module contains the functions for \doxylink{structMol}{Mol} struct. 
+
+\begin{DoxyAuthor}{Author}
+Yifan Jiang, Tianyi Gao 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/11-\/25
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+GNU Public License V3.\+0 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{mol_8c_a4b80c4cc41ff7488a5c0dc3ccc0664ab}\label{mol_8c_a4b80c4cc41ff7488a5c0dc3ccc0664ab} 
+\index{mol.c@{mol.c}!gen\_eri\_index@{gen\_eri\_index}}
+\index{gen\_eri\_index@{gen\_eri\_index}!mol.c@{mol.c}}
+\doxysubsubsection{\texorpdfstring{gen\_eri\_index()}{gen\_eri\_index()}}
+{\footnotesize\ttfamily void gen\+\_\+eri\+\_\+index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const}]{m }\end{DoxyParamCaption})}
+
+
+
+extract the 2e integral value into a 1D array, with unique index sequence 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{mol_8c_a13974e7f64fb0971aa96918deff7e011}\label{mol_8c_a13974e7f64fb0971aa96918deff7e011} 
+\index{mol.c@{mol.c}!get\_eri\_energy@{get\_eri\_energy}}
+\index{get\_eri\_energy@{get\_eri\_energy}!mol.c@{mol.c}}
+\doxysubsubsection{\texorpdfstring{get\_eri\_energy()}{get\_eri\_energy()}}
+{\footnotesize\ttfamily energy get\+\_\+eri\+\_\+energy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const}]{m,  }\item[{int32\+\_\+t}]{i,  }\item[{int32\+\_\+t}]{j,  }\item[{int32\+\_\+t}]{a,  }\item[{int32\+\_\+t}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Given (ijab), return the 2e integral energy of (ia\texorpdfstring{$\vert$}{|}jb) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \doxylink{structMol}{Mol} struct \\
+\hline
+{\em i,j,a,b} & indices of the 2e integral \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+2e integral of (ia\texorpdfstring{$\vert$}{|}jb) 
+\end{DoxyReturn}
+\Hypertarget{mol_8c_acacea9c64c2c818ee7e5967fc15c9ee4}\label{mol_8c_acacea9c64c2c818ee7e5967fc15c9ee4} 
+\index{mol.c@{mol.c}!get\_nth\_eri@{get\_nth\_eri}}
+\index{get\_nth\_eri@{get\_nth\_eri}!mol.c@{mol.c}}
+\doxysubsubsection{\texorpdfstring{get\_nth\_eri()}{get\_nth\_eri()}}
+{\footnotesize\ttfamily energy get\+\_\+nth\+\_\+eri (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{n,  }\item[{\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const}]{m }\end{DoxyParamCaption})}
+
+
+
+get the nth 2e integral value 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & index of the 2e integral \\
+\hline
+{\em m} & \doxylink{structMol}{Mol} struct \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nth 2e integral value 
+\end{DoxyReturn}
+\Hypertarget{mol_8c_a82c0d13c43b68ef3ad97070cf3fef0cf}\label{mol_8c_a82c0d13c43b68ef3ad97070cf3fef0cf} 
+\index{mol.c@{mol.c}!mol\_destruct@{mol\_destruct}}
+\index{mol\_destruct@{mol\_destruct}!mol.c@{mol.c}}
+\doxysubsubsection{\texorpdfstring{mol\_destruct()}{mol\_destruct()}}
+{\footnotesize\ttfamily void mol\+\_\+destruct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const}]{m }\end{DoxyParamCaption})}
+
+
+
+destruct the \doxylink{structMol}{Mol} struct 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \doxylink{structMol}{Mol} struct \\
+\hline
+\end{DoxyParams}
+\Hypertarget{mol_8c_a3e205777d94dc88fdb20547575684ee6}\label{mol_8c_a3e205777d94dc88fdb20547575684ee6} 
+\index{mol.c@{mol.c}!mol\_init@{mol\_init}}
+\index{mol\_init@{mol\_init}!mol.c@{mol.c}}
+\doxysubsubsection{\texorpdfstring{mol\_init()}{mol\_init()}}
+{\footnotesize\ttfamily void mol\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const}]{m,  }\item[{char \texorpdfstring{$\ast$}{*}}]{filename }\end{DoxyParamCaption})}
+
+
+
+initialize the \doxylink{structMol}{Mol} struct from the .h5 file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \doxylink{structMol}{Mol} struct \\
+\hline
+{\em filename} & path to the .h5 file \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,110 @@
+\doxysection{src/util.c File Reference}
+\hypertarget{util_8c}{}\label{util_8c}\index{src/util.c@{src/util.c}}
+
+
+This module contains the utility functions.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}util.\+h"{}}\newline
+{\ttfamily \#include "{}mol.\+h"{}}\newline
+Include dependency graph for util.\+c\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{util_8c_a57f428f85b40c768f87e6fc53b8eb52c}{print\+\_\+matrix}} (double \texorpdfstring{$\ast$}{*}const m, int row, int col)
+\begin{DoxyCompactList}\small\item\em print a double array in matrix format \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{util_8c_ace53dc574607b3db7fb5c0a19540fe82}{sum\+\_\+diag}} (double \texorpdfstring{$\ast$}{*}const m, int n, int order)
+\begin{DoxyCompactList}\small\item\em sum to nth diagonal elements of a square matrix \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{util_8c_a8a7d96decaa48c1b5a5c9e7111cb6dee}{index\+\_\+2e}} (int i, int j, int k, int l, int n)
+\begin{DoxyCompactList}\small\item\em calculates unique index of given (ijkl) for 2e integrals \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This module contains the utility functions. 
+
+\begin{DoxyAuthor}{Author}
+Tianyi Gao 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/11-\/23
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+GNU Public License V3.\+0 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{util_8c_a8a7d96decaa48c1b5a5c9e7111cb6dee}\label{util_8c_a8a7d96decaa48c1b5a5c9e7111cb6dee} 
+\index{util.c@{util.c}!index\_2e@{index\_2e}}
+\index{index\_2e@{index\_2e}!util.c@{util.c}}
+\doxysubsubsection{\texorpdfstring{index\_2e()}{index\_2e()}}
+{\footnotesize\ttfamily int32\+\_\+t index\+\_\+2e (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{k,  }\item[{int}]{l,  }\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+calculates unique index of given (ijkl) for 2e integrals 
+
+\begin{DoxyNote}{Note}
+0 \texorpdfstring{$<$}{<}= i, j, k, l \texorpdfstring{$<$}{<} n 
+
+i \texorpdfstring{$<$}{<}= j, k \texorpdfstring{$<$}{<}= l, i \texorpdfstring{$<$}{<}= k 
+
+if i == k, then j \texorpdfstring{$<$}{<}= l 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em i,j,k,l} & indices of the 2e integrals \\
+\hline
+{\em n} & number of MOs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unique index 
+\end{DoxyReturn}
+\Hypertarget{util_8c_a57f428f85b40c768f87e6fc53b8eb52c}\label{util_8c_a57f428f85b40c768f87e6fc53b8eb52c} 
+\index{util.c@{util.c}!print\_matrix@{print\_matrix}}
+\index{print\_matrix@{print\_matrix}!util.c@{util.c}}
+\doxysubsubsection{\texorpdfstring{print\_matrix()}{print\_matrix()}}
+{\footnotesize\ttfamily void print\+\_\+matrix (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}const}]{m,  }\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+print a double array in matrix format 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & array to be printed \\
+\hline
+{\em row} & number of rows \\
+\hline
+{\em col} & number of columns \\
+\hline
+\end{DoxyParams}
+\Hypertarget{util_8c_ace53dc574607b3db7fb5c0a19540fe82}\label{util_8c_ace53dc574607b3db7fb5c0a19540fe82} 
+\index{util.c@{util.c}!sum\_diag@{sum\_diag}}
+\index{sum\_diag@{sum\_diag}!util.c@{util.c}}
+\doxysubsubsection{\texorpdfstring{sum\_diag()}{sum\_diag()}}
+{\footnotesize\ttfamily double sum\+\_\+diag (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}const}]{m,  }\item[{int}]{n,  }\item[{int}]{order }\end{DoxyParamCaption})}
+
+
+
+sum to nth diagonal elements of a square matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & 1D matrix data array \\
+\hline
+{\em n} & sum up to nth diagonal elements \\
+\hline
+{\em order} & order of the matrix (row = col) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sum of the diagonal elements 
+\end{DoxyReturn}

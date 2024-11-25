@@ -1,3 +1,13 @@
+/**
+ * @file hf.c
+ * @author Tianyi Gao
+ * @brief This module contains the functions for HF energy calculation
+ * @version 1.0
+ * @date 2024-11-25
+ * 
+ * @copyright GNU Public License V3.0
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <trexio.h>
@@ -10,13 +20,7 @@ void get_hcore_sum(Mol* const m) {
     return;
 }
 
-/* HF ERI should be <ij|ij> or <ij|ji>, for <ij|kl>, check if i == k and j == l
-or i == l and j == k. 
-if i = j = k = l, return 1
-if i = k and j = l, return 2
-if i = l and j = k, return 3
-else return 0
-*/
+
 
 int match_eri(int i, int j, int k, int l, Mol* const m) {
     // check if i, j, k, l > n_up

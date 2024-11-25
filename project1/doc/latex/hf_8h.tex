@@ -1,0 +1,123 @@
+\doxysection{src/hf.h File Reference}
+\hypertarget{hf_8h}{}\label{hf_8h}\index{src/hf.h@{src/hf.h}}
+
+
+This module contains the functions for HF energy calculation.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}mol.\+h"{}}\newline
+{\ttfamily \#include "{}util.\+h"{}}\newline
+Include dependency graph for hf.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{hf_8h_a2c702369ee21b65a1a2baa70c87cb852}{get\+\_\+hcore\+\_\+sum}} (\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const m)
+\begin{DoxyCompactList}\small\item\em Get the core Hamiltonian sum. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hf_8h_acc752ed4358b369f208173c397fd1125}{hf\+\_\+kernel}} (\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const m)
+\begin{DoxyCompactList}\small\item\em Calculate the HF energy. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{hf_8h_afa372f3edaef7c9a67738b6d83e745af}{match\+\_\+eri}} (int i, int j, int k, int l, \mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const m)
+\begin{DoxyCompactList}\small\item\em Match the ERI index HF ERI should be \texorpdfstring{$<$}{<}ij\texorpdfstring{$\vert$}{|}ij\texorpdfstring{$>$}{>} or \texorpdfstring{$<$}{<}ij\texorpdfstring{$\vert$}{|}ji\texorpdfstring{$>$}{>}, for \texorpdfstring{$<$}{<}ij\texorpdfstring{$\vert$}{|}kl\texorpdfstring{$>$}{>}, check if i == k and j == l or i == l and j == k. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hf_8h_a1a490a65bfe55d3f23b1b15621234882}{get\+\_\+eri\+\_\+sum}} (\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const m)
+\begin{DoxyCompactList}\small\item\em Get sum of ERI values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This module contains the functions for HF energy calculation. 
+
+\begin{DoxyAuthor}{Author}
+Tianyi Gao 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/11-\/24 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+GNU Public License V3.\+0 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hf_8h_a1a490a65bfe55d3f23b1b15621234882}\label{hf_8h_a1a490a65bfe55d3f23b1b15621234882} 
+\index{hf.h@{hf.h}!get\_eri\_sum@{get\_eri\_sum}}
+\index{get\_eri\_sum@{get\_eri\_sum}!hf.h@{hf.h}}
+\doxysubsubsection{\texorpdfstring{get\_eri\_sum()}{get\_eri\_sum()}}
+{\footnotesize\ttfamily void get\+\_\+eri\+\_\+sum (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const}]{m }\end{DoxyParamCaption})}
+
+
+
+Get sum of ERI values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \doxylink{structMol}{Mol} struct \\
+\hline
+\end{DoxyParams}
+\Hypertarget{hf_8h_a2c702369ee21b65a1a2baa70c87cb852}\label{hf_8h_a2c702369ee21b65a1a2baa70c87cb852} 
+\index{hf.h@{hf.h}!get\_hcore\_sum@{get\_hcore\_sum}}
+\index{get\_hcore\_sum@{get\_hcore\_sum}!hf.h@{hf.h}}
+\doxysubsubsection{\texorpdfstring{get\_hcore\_sum()}{get\_hcore\_sum()}}
+{\footnotesize\ttfamily void get\+\_\+hcore\+\_\+sum (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const}]{m }\end{DoxyParamCaption})}
+
+
+
+Get the core Hamiltonian sum. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \doxylink{structMol}{Mol} struct \\
+\hline
+\end{DoxyParams}
+\Hypertarget{hf_8h_acc752ed4358b369f208173c397fd1125}\label{hf_8h_acc752ed4358b369f208173c397fd1125} 
+\index{hf.h@{hf.h}!hf\_kernel@{hf\_kernel}}
+\index{hf\_kernel@{hf\_kernel}!hf.h@{hf.h}}
+\doxysubsubsection{\texorpdfstring{hf\_kernel()}{hf\_kernel()}}
+{\footnotesize\ttfamily void hf\+\_\+kernel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const}]{m }\end{DoxyParamCaption})}
+
+
+
+Calculate the HF energy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \doxylink{structMol}{Mol} struct \\
+\hline
+\end{DoxyParams}
+\Hypertarget{hf_8h_afa372f3edaef7c9a67738b6d83e745af}\label{hf_8h_afa372f3edaef7c9a67738b6d83e745af} 
+\index{hf.h@{hf.h}!match\_eri@{match\_eri}}
+\index{match\_eri@{match\_eri}!hf.h@{hf.h}}
+\doxysubsubsection{\texorpdfstring{match\_eri()}{match\_eri()}}
+{\footnotesize\ttfamily int match\+\_\+eri (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{k,  }\item[{int}]{l,  }\item[{\mbox{\hyperlink{structMol}{Mol}} \texorpdfstring{$\ast$}{*}const}]{m }\end{DoxyParamCaption})}
+
+
+
+Match the ERI index HF ERI should be \texorpdfstring{$<$}{<}ij\texorpdfstring{$\vert$}{|}ij\texorpdfstring{$>$}{>} or \texorpdfstring{$<$}{<}ij\texorpdfstring{$\vert$}{|}ji\texorpdfstring{$>$}{>}, for \texorpdfstring{$<$}{<}ij\texorpdfstring{$\vert$}{|}kl\texorpdfstring{$>$}{>}, check if i == k and j == l or i == l and j == k. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & \\
+\hline
+{\em j} & \\
+\hline
+{\em k} & \\
+\hline
+{\em l} & \\
+\hline
+{\em m} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if i = j = k = l \textbackslash{} 
+
+2 if i = k and j = l \textbackslash{} 
+
+3 if i = l and j = k \textbackslash{} 
+
+0 if none of the above 
+\end{DoxyReturn}
