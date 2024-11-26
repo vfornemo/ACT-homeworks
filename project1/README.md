@@ -81,3 +81,12 @@ Electronic energy: -85.221764
 HF energy: -76.026799
 MP2 energy: -76.230759
 ```
+
+## Test The Program
+In the root directory, there is a bash script for testing this program, which will generates test result in tests directory. It shall be used like this.
+```bash
+./test.sh
+```
+Make sure that all h5 file included in the script is in the data directory.
+
+At the end of the test, it will print out which tests are successful, using pre-defined reference data.

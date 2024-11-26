@@ -2,3 +2,4 @@
 *.log
 *.o
 Doxyfile
+/project1/tests
