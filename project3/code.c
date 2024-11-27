@@ -34,8 +34,33 @@ void free_2d(double** a) {
 	free(a);
 }
 
+// Function to read the number of atoms from input file inp.txt
+size_t read_Natoms(const char* filename){
+	int c;
+        FILE* input_file = fopen(filename,"r");
+        if (!input_file){
+                printf("Could not open file");
+                return -1;
+        }
+	if (input_file){
+		while ((c = getc(input_file))!= EOF)
+			putchar(c);
+		fclose(input_file);
+	}
+	return 1;
+}
+
+// Function to read number of atoms, coordinates and masses
+void readmolecule(FILE* input_file, size_t Natoms, double** coord, double* mass){
+
+}
+
 int main() {
 	double** a1=malloc_2d(3,4);
 	printf("\n%p\n",&a1);
 	free_2d(a1);
+	size_t success = read_Natoms("inp.txt");
+	if (success == -1){
+		printf("Error reading file. \n");
+	}
 }
