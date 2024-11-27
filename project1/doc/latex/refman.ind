@@ -1,0 +1,143 @@
+\begin{theindex}
+
+  \item {cal\_mp2\_correlation}
+    \subitem {mp2.c}, \hyperpage{21}
+    \subitem {mp2.h}, \hyperpage{22}
+  \item {Computation of the MP2 energy}, \hyperpage{1}
+
+  \indexspace
+
+  \item {gen\_eri\_index}
+    \subitem {mol.c}, \hyperpage{15}
+    \subitem {mol.h}, \hyperpage{18}
+  \item {get\_eri\_energy}
+    \subitem {mol.c}, \hyperpage{15}
+    \subitem {mol.h}, \hyperpage{18}
+  \item {get\_eri\_sum}
+    \subitem {hf.h}, \hyperpage{12}
+  \item {get\_hcore\_sum}
+    \subitem {hf.h}, \hyperpage{12}
+  \item {get\_nth\_eri}
+    \subitem {mol.c}, \hyperpage{16}
+    \subitem {mol.h}, \hyperpage{19}
+
+  \indexspace
+
+  \item {hf.h}
+    \subitem {get\_eri\_sum}, \hyperpage{12}
+    \subitem {get\_hcore\_sum}, \hyperpage{12}
+    \subitem {hf\_kernel}, \hyperpage{12}
+    \subitem {match\_eri}, \hyperpage{13}
+  \item {hf\_kernel}
+    \subitem {hf.h}, \hyperpage{12}
+
+  \indexspace
+
+  \item {index\_2e}
+    \subitem {util.c}, \hyperpage{30}
+    \subitem {util.h}, \hyperpage{32}
+  \item {Installation}, \hyperpage{3}
+
+  \indexspace
+
+  \item {match\_eri}
+    \subitem {hf.h}, \hyperpage{13}
+  \item {Mol}, \hyperpage{9}
+  \item {mol.c}
+    \subitem {gen\_eri\_index}, \hyperpage{15}
+    \subitem {get\_eri\_energy}, \hyperpage{15}
+    \subitem {get\_nth\_eri}, \hyperpage{16}
+    \subitem {mol\_destruct}, \hyperpage{16}
+    \subitem {mol\_init}, \hyperpage{16}
+  \item {mol.h}
+    \subitem {gen\_eri\_index}, \hyperpage{18}
+    \subitem {get\_eri\_energy}, \hyperpage{18}
+    \subitem {get\_nth\_eri}, \hyperpage{19}
+    \subitem {mol\_destruct}, \hyperpage{19}
+    \subitem {mol\_init}, \hyperpage{19}
+  \item {mol\_destruct}
+    \subitem {mol.c}, \hyperpage{16}
+    \subitem {mol.h}, \hyperpage{19}
+  \item {mol\_init}
+    \subitem {mol.c}, \hyperpage{16}
+    \subitem {mol.h}, \hyperpage{19}
+  \item {mp2.c}
+    \subitem {cal\_mp2\_correlation}, \hyperpage{21}
+  \item {mp2.h}
+    \subitem {cal\_mp2\_correlation}, \hyperpage{22}
+
+  \indexspace
+
+  \item {print\_matrix}
+    \subitem {util.c}, \hyperpage{30}
+    \subitem {util.h}, \hyperpage{32}
+
+  \indexspace
+
+  \item {read\_electron\_up\_num}
+    \subitem {reader.c}, \hyperpage{23}
+    \subitem {reader.h}, \hyperpage{26}
+  \item {read\_mo\_1e\_int\_h\_core}
+    \subitem {reader.c}, \hyperpage{24}
+    \subitem {reader.h}, \hyperpage{27}
+  \item {read\_mo\_2e\_int\_eri}
+    \subitem {reader.c}, \hyperpage{24}
+    \subitem {reader.h}, \hyperpage{27}
+  \item {read\_mo\_2e\_int\_eri\_size}
+    \subitem {reader.c}, \hyperpage{24}
+    \subitem {reader.h}, \hyperpage{27}
+  \item {read\_mo\_energy}
+    \subitem {reader.c}, \hyperpage{24}
+    \subitem {reader.h}, \hyperpage{27}
+  \item {read\_mo\_num}
+    \subitem {reader.c}, \hyperpage{25}
+    \subitem {reader.h}, \hyperpage{28}
+  \item {read\_nucleus\_repulsion}
+    \subitem {reader.c}, \hyperpage{25}
+    \subitem {reader.h}, \hyperpage{28}
+  \item {reader.c}
+    \subitem {read\_electron\_up\_num}, \hyperpage{23}
+    \subitem {read\_mo\_1e\_int\_h\_core}, \hyperpage{24}
+    \subitem {read\_mo\_2e\_int\_eri}, \hyperpage{24}
+    \subitem {read\_mo\_2e\_int\_eri\_size}, \hyperpage{24}
+    \subitem {read\_mo\_energy}, \hyperpage{24}
+    \subitem {read\_mo\_num}, \hyperpage{25}
+    \subitem {read\_nucleus\_repulsion}, \hyperpage{25}
+  \item {reader.h}
+    \subitem {read\_electron\_up\_num}, \hyperpage{26}
+    \subitem {read\_mo\_1e\_int\_h\_core}, \hyperpage{27}
+    \subitem {read\_mo\_2e\_int\_eri}, \hyperpage{27}
+    \subitem {read\_mo\_2e\_int\_eri\_size}, \hyperpage{27}
+    \subitem {read\_mo\_energy}, \hyperpage{27}
+    \subitem {read\_mo\_num}, \hyperpage{28}
+    \subitem {read\_nucleus\_repulsion}, \hyperpage{28}
+
+  \indexspace
+
+  \item {src/hf.c}, \hyperpage{11}
+  \item {src/hf.h}, \hyperpage{11}, \hyperpage{13}
+  \item {src/main.c}, \hyperpage{14}
+  \item {src/mol.c}, \hyperpage{14}
+  \item {src/mol.h}, \hyperpage{17}, \hyperpage{20}
+  \item {src/mp2.c}, \hyperpage{20}
+  \item {src/mp2.h}, \hyperpage{21, 22}
+  \item {src/reader.c}, \hyperpage{22}
+  \item {src/reader.h}, \hyperpage{25}, \hyperpage{28}
+  \item {src/util.c}, \hyperpage{29}
+  \item {src/util.h}, \hyperpage{31}, \hyperpage{33}
+  \item {sum\_diag}
+    \subitem {util.c}, \hyperpage{30}
+    \subitem {util.h}, \hyperpage{32}
+
+  \indexspace
+
+  \item {util.c}
+    \subitem {index\_2e}, \hyperpage{30}
+    \subitem {print\_matrix}, \hyperpage{30}
+    \subitem {sum\_diag}, \hyperpage{30}
+  \item {util.h}
+    \subitem {index\_2e}, \hyperpage{32}
+    \subitem {print\_matrix}, \hyperpage{32}
+    \subitem {sum\_diag}, \hyperpage{32}
+
+\end{theindex}

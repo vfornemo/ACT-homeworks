@@ -1,0 +1,46 @@
+\doxysection{mol.\+h}
+\hypertarget{mol_8h_source}{}\label{mol_8h_source}\index{src/mol.h@{src/mol.h}}
+\mbox{\hyperlink{mol_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ MOL\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ MOL\_H}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{double}\ energy;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ int32\_t\ \mbox{\hyperlink{structMol_ae25f65d20117f4bc99d3726ec27dea89}{mo\_num}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ int32\_t\ \mbox{\hyperlink{structMol_aff2f621bb0d035047f3eff25d11f4f9e}{n\_up}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ int64\_t\ \mbox{\hyperlink{structMol_aaad99fe227b135211005bd1667e3a6b7}{n\_2e\_int}};\ \ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ energy\ \mbox{\hyperlink{structMol_a3e7ce8b5797283b67bacf25ff3fbcc30}{e\_nuc}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ int32\_t*\ \mbox{\hyperlink{structMol_a591e2737d56fbc4b77f903ebf915ddbe}{eri\_index}};\ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ energy*\ \mbox{\hyperlink{structMol_aaa7d59a3eb3406c31874a960cf44a323}{eri\_value}};\ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ energy*\ \mbox{\hyperlink{structMol_a43bbde8e51e31cdb33ff66f518f60370}{eri\_seq}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ energy*\ \mbox{\hyperlink{structMol_a2a14df46fc07d3a1046cf0253784a0b6}{h\_core}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ energy*\ \mbox{\hyperlink{structMol_a03a5d43b9b2bbabcd1bba89efeea7847}{e\_mo}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ energy\ \mbox{\hyperlink{structMol_a28f25fa79ca667d031307ce93b07fe32}{h\_core\_sum}};\ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ energy\ \mbox{\hyperlink{structMol_af337f728093b27fa96f00256366b73d2}{eri\_sum}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ energy\ \mbox{\hyperlink{structMol_a75dc292ccdff494ee9a9e04d55453c6e}{e\_elec}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ energy\ \mbox{\hyperlink{structMol_a3eec6ce35368701d3cb90e74b862a50d}{e\_hf}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ energy\ \mbox{\hyperlink{structMol_a4dbab8ec88188a1317aa431567046e18}{e\_mp2}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \}\ \mbox{\hyperlink{structMol}{Mol}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mol_8h_a3e205777d94dc88fdb20547575684ee6}{mol\_init}}(\mbox{\hyperlink{structMol}{Mol}}*\ \textcolor{keyword}{const}\ m,\ \textcolor{keywordtype}{char}*\ filename);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mol_8h_a82c0d13c43b68ef3ad97070cf3fef0cf}{mol\_destruct}}(\mbox{\hyperlink{structMol}{Mol}}*\ \textcolor{keyword}{const}\ m);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00062\ energy\ \mbox{\hyperlink{mol_8h_acacea9c64c2c818ee7e5967fc15c9ee4}{get\_nth\_eri}}(int64\_t\ n,\ \mbox{\hyperlink{structMol}{Mol}}*\ \textcolor{keyword}{const}\ m);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mol_8h_a4b80c4cc41ff7488a5c0dc3ccc0664ab}{gen\_eri\_index}}(\mbox{\hyperlink{structMol}{Mol}}*\ \textcolor{keyword}{const}\ m);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00078\ energy\ \mbox{\hyperlink{mol_8h_a13974e7f64fb0971aa96918deff7e011}{get\_eri\_energy}}(\mbox{\hyperlink{structMol}{Mol}}*\ \textcolor{keyword}{const}\ m,\ int32\_t\ i,\ int32\_t\ j,\ int32\_t\ a,\ int32\_t\ b);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00082\ }
+
+\end{DoxyCode}

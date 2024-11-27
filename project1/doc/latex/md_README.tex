@@ -1,0 +1,90 @@
+\chapter{Computation of the MP2 energy}
+\hypertarget{md_README}{}\label{md_README}\index{Computation of the MP2 energy@{Computation of the MP2 energy}}
+\label{md_README_autotoc_md0}%
+\Hypertarget{md_README_autotoc_md0}%
+ This program reads the {\ttfamily .h5} file and computes the MP2 energy.\hypertarget{md_README_autotoc_md1}{}\doxysection{\texorpdfstring{Theory}{Theory}}\label{md_README_autotoc_md1}
+The MP2 energy is given by the formula\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{E\_\{\(\backslash\)text\{MP2\}\}\ =\ E\_\{\(\backslash\)text\{HF\}\}\ +\ }
+\DoxyCodeLine{\ \(\backslash\)sum\_\{(i,j)\(\backslash\)in\(\backslash\)text\{occupied\}\}\(\backslash\)sum\_\{(a,b)\(\backslash\)in\(\backslash\)text\{virtual\}\}\(\backslash\)langle\ ij||ab\(\backslash\)rangle\(\backslash\)frac\{2\(\backslash\)langle\ ij||ab\(\backslash\)rangle-\/\(\backslash\)langle\ ij||ba\(\backslash\)rangle\}\{\(\backslash\)varepsilon\_i+\(\backslash\)varepsilon\_j-\/\(\backslash\)varepsilon\_a-\/\(\backslash\)varepsilon\_b\}}
+
+\end{DoxyCode}
+
+
+where the \$\+E\+\_\+\{\textbackslash{}text\{HF\}\}\$ is the Hartree-\/\+Fock energy calculated by the following formula\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{E\_\{\(\backslash\)text\{HF\}\}\ =\ E\_\{NN\}\ +\ 2\(\backslash\)sum\_\{i=1\}\string^\{N\_\{\(\backslash\)text\{occ\}\}\}\(\backslash\)langle\ i|h|i\(\backslash\)rangle\ +\ \(\backslash\)sum\_\{i=1\}\string^\{N\_\{\(\backslash\)text\{occ\}\}\}\(\backslash\)sum\_\{j=1\}\string^\{N\_\{\(\backslash\)text\{occ\}\}\}\ \(\backslash\)left(2\(\backslash\)langle\ ij||ij\(\backslash\)rangle\ -\/\ \(\backslash\)langle\ ij||ji\(\backslash\)rangle\(\backslash\)right)}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md2}{}\doxysection{\texorpdfstring{Dependencies}{Dependencies}}\label{md_README_autotoc_md2}
+The program depends on the {\ttfamily HDF5} library and {\ttfamily TREXIO} library.\hypertarget{md_README_autotoc_md3}{}\doxysubsection{\texorpdfstring{HDF5}{HDF5}}\label{md_README_autotoc_md3}
+On Ubuntu, the {\ttfamily HDF5} library can be installed using the following command\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ sudo\ apt-\/get\ install\ libhdf5-\/dev}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md4}{}\doxysubsection{\texorpdfstring{TREXIO}{TREXIO}}\label{md_README_autotoc_md4}
+The {\ttfamily TREXIO} library can be installed using the following command\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ wget\ https://github.com/TREX-\/CoE/trexio/releases/download/v2.5.0/trexio-\/2.5.0.tar.gz}
+\DoxyCodeLine{\$\ tar\ -\/zxvf\ trexio-\/2.5.0.tar.gz}
+\DoxyCodeLine{\$\ cd\ trexio-\/2.5.0}
+\DoxyCodeLine{\$\ ./configure}
+\DoxyCodeLine{\$\ make}
+\DoxyCodeLine{\$\ sudo\ make\ install}
+
+\end{DoxyCode}
+ Note that when configuring the {\ttfamily TREXIO} library, you may need to specify the path to the {\ttfamily HDF5} library if it is not installed in the default location. See more information \href{https://github.com/TREX-CoE/trexio}{\texttt{ here}}.\hypertarget{md_README_autotoc_md5}{}\doxysection{\texorpdfstring{Installation and usage}{Installation and usage}}\label{md_README_autotoc_md5}
+To install the program, run the following commands\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ git\ clone\ git@github.com:vfornemo/ACT-\/homeworks.git}
+\DoxyCodeLine{\$\ cd\ project1}
+\DoxyCodeLine{\$\ ./compile.sh}
+
+\end{DoxyCode}
+
+
+The program can be run using the following command\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./main.o\ [path/to/input.h5]}
+
+\end{DoxyCode}
+
+
+The program will read the {\ttfamily input.\+h5} file and write the MP2 energy to the standard output.\hypertarget{md_README_autotoc_md6}{}\doxysection{\texorpdfstring{Example}{Example}}\label{md_README_autotoc_md6}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ ./main.o\ ./data/h2o.h5}
+
+\end{DoxyCode}
+
+
+The output will be\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Reading\ file:\ ./data/h2o.h5}
+\DoxyCodeLine{Nucleus\ repulsion\ energy:\ 9.194966}
+\DoxyCodeLine{Number\ of\ up\ electrons:\ 5}
+\DoxyCodeLine{Number\ of\ MOs:\ 24}
+\DoxyCodeLine{Number\ of\ 2e\ integrals:\ 13458}
+\DoxyCodeLine{h\_core\_sum:\ -\/123.151186}
+\DoxyCodeLine{eri\_sum:\ 37.929422}
+\DoxyCodeLine{Electronic\ energy:\ -\/85.221764}
+\DoxyCodeLine{HF\ energy:\ -\/76.026799}
+\DoxyCodeLine{MP2\ energy:\ -\/76.230759}
+
+\end{DoxyCode}
+ 
