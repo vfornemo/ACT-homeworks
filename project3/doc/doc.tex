@@ -1,0 +1,41 @@
+# A Molecular Dynamics Code
+\section{Molecular Dynamics: Input Reading and Distance Calculation}
+
+\subsection{Input Handling}
+The first part of the program focuses on reading the input data required for the molecular dynamics simulation. The input file \texttt{inp.txt} contains the number of atoms and their respective Cartesian coordinates and masses. With these, the following steps are implemented:
+
+\begin{itemize}
+    \item \textbf{Read Number of Atoms:}
+    The function \texttt{read\_Natoms()} reads the total number of atoms specified in the first line of the input file.
+    \item \textbf{Memory Allocation:}
+    Using the function \texttt{malloc\_2d()}, memory is allocated dynamically for a two-dimensional array to store atomic coordinates (\(x, y, z\)) and another one for interatomic distances.
+    \item \textbf{Input:}
+    The \texttt{read\_molecule()} function reads the atomic coordinates and masses from the file and stores them in pre-allocated arrays.
+\end{itemize}
+
+\subsection{Distance Calculation}
+The \texttt{compute\_distances()} function calculates the pairwise distances between all atoms using the Euclidean formula:
+
+\begin{equation}
+d_{ij} = \sqrt{(x_{i} - x_{j})^2 + (y_{i} - y_{j})^2 + (z_{i} - z_{j})^2}
+\end{equation}
+
+This is performed in a nested loop for all atom pairs, where the distance from an atom to itself is set to 0. The resulting distances are stored in a dynamically allocated two-dimensional array for further use in the simulation.
+
+\subsection{Key Functions}
+\begin{description}
+    \item[\texttt{malloc\_2d():}] Allocates memory for a 2D array, ensuring efficient storage and access.
+    \item[\texttt{read\_Natoms():}] Reads the total number of atoms from the input file.
+    \item[\texttt{read\_molecule():}] Reads atomic coordinates and masses into allocated arrays.
+    \item[\texttt{compute\_distances():}] Calculates and stores interatomic distances based on Cartesian coordinates.
+\end{description}
+
+\subsection{Validation and Testing}
+The implementation also includes error handling, such as:
+\begin{itemize}
+    \item Checking for file-opening errors.
+    \item Validating the successful allocation of memory.
+    \item Handling unexpected input file formats or missing data.
+\end{itemize}
+
+The output is verified by printing the coordinates, masses, and calculated distances to the console for cross-checking.
