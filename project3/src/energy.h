@@ -1,5 +1,7 @@
 #ifndef ENERGY_H
 #define ENERGY_H
+#define EPSILON 0.0661
+#define SIGMA 0.3345
 
 #include <stddef.h>
 #include <math.h>
@@ -19,6 +21,9 @@ double V(double epsilon, double sigma, size_t Natoms, double** distance);
 /// @return kinetic energy
 double T(size_t Natoms, double** velocity, double* mass);
 
+
+void compute_acc(size_t Natoms, double** coord, double* mass, double** distance, double** acceleration);
+
 /// @brief compute total energy
 /// @param Natoms number of atoms
 /// @param velocity velocities of atoms
@@ -27,13 +32,9 @@ double T(size_t Natoms, double** velocity, double* mass);
 /// @param sigma L-J coefficient
 /// @param distance distances between atoms
 /// @return total energy
-inline double E(size_t Natoms, double** velocity, double* mass, double epsilon, double sigma, double ** distance) {
-    return V(epsilon, sigma, Natoms, distance) + T(Natoms, velocity, mass);
-}
+double E(size_t Natoms, double** velocity, double* mass, double epsilon, double sigma, double ** distance);
 
-inline double U(double epsilon, double sigma, double r) {
-    return 24 * epsilon / r *(pow(sigma / r, 6.0) - 2 * pow(sigma / r, 12.0));
-}
+double U(double epsilon, double sigma, double r);
 
 
 #endif
