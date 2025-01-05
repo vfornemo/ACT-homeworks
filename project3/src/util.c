@@ -104,6 +104,8 @@ void write_xyz(FILE* output_file, size_t Natoms, char* comment, double** coord) 
 
     // Write the coordinates of each atom
     for (size_t i = 0; i < Natoms; i++) {
-        fprintf(output_file, "C %.6f %.6f %.6f\n", coord[i][0], coord[i][1], coord[i][2]);
+        fprintf(output_file, "Ar %.6f %.6f %.6f\n", coord[i][0], coord[i][1], coord[i][2]);
     }
+
+    fprintf(output_file, "\n");  // Add an empty line at the end
 }

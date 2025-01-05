@@ -65,6 +65,7 @@ int main() {
     compute_acc(Natoms, coord, mass, distance, acceleration);
 
     int cycle = 0;
+    FILE* out = fopen("output.xyz", "w");
 
     while (cycle < step) {
         for (size_t i = 0; i < Natoms; i++) {
@@ -90,27 +91,26 @@ int main() {
         cycle++;
 
         if (cycle % 10 == 0) {
-            printf("Number of atoms: %zu\n", Natoms);
-            printf("Kinetic energy: %f ", T(Natoms, velocity, mass));
-            printf("Potential energy: %f ", V(EPSILON, SIGMA, Natoms, distance));
-            printf("Total energy: %f\n", E(Natoms, velocity, mass, EPSILON, SIGMA, distance));
-
-                    // Print the calculated distances
-            for (size_t i = 0; i < Natoms; i++) {
-                for (size_t j = 0; j < Natoms; j++) {
-                    printf("Distance between atom %zu and atom %zu: %f\n", i+1, j+1, distance[i][j]);
-                }
-            }
-
+            // printf("Number of atoms: %zu\n", Natoms);
+            // printf("Kinetic energy: %f ", T(Natoms, velocity, mass));
+            // printf("Potential energy: %f ", V(EPSILON, SIGMA, Natoms, distance));
+            // printf("Total energy: %f\n", E(Natoms, velocity, mass, EPSILON, SIGMA, distance));
+            // format comment
+            char* comment = malloc(100 * sizeof(char));
+            sprintf(comment, "Cycle=%d, T=%.6f, V=%.6f, E=%.6f",cycle, T(Natoms, velocity, mass), V(EPSILON, SIGMA, Natoms, distance), E(Natoms, velocity, mass, EPSILON, SIGMA, distance));
+            write_xyz(out, Natoms, comment, coord);
+            // TODO: check if the total energy is conserved
         }
     }
 
-
+    fclose(out);  // Close the output file
 
     // Free the allocated memory
     free_2d(coord);
     free(mass);
     free_2d(distance);
+    free_2d(velocity);
+    free_2d(acceleration);
 
     fclose(input_file); // Close the file
     return 0;
