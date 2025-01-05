@@ -3,3 +3,4 @@
 *.o
 Doxyfile
 /project1/tests
+*.xyz
