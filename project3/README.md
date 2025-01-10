@@ -1,15 +1,13 @@
-\# A Molecular Dynamics Code
+# A Molecular Dynamics Code
 
-Molecular Dynamics: Input Reading and Distance Calculation
-==========================================================
+## Overview
 
-Input Handling
---------------
+This project implements a molecular dynamics program with functionalities for reading input data and calculating pairwise distances between atoms.
 
-The first part of the program focuses on reading the input data required
-for the molecular dynamics simulation. The input file `inp.txt` contains
-the number of atoms and their respective Cartesian coordinates and
-masses. With these, the following steps are implemented:
+
+### Input Handling
+
+The first part of the program focuses on reading the input data required for the molecular dynamics simulation. The input file `inp.txt` contains the number of atoms and their respective Cartesian coordinates and masses. With these, the following steps are implemented:
 
 -   **Read Number of Atoms:** The function `read_Natoms()` reads the
     total number of atoms specified in the first line of the input file.
@@ -22,8 +20,7 @@ masses. With these, the following steps are implemented:
     coordinates and masses from the file and stores them in
     pre-allocated arrays.
 
-Distance Calculation
---------------------
+### Distance Calculation
 
 The `compute_distances()` function calculates the pairwise distances
 between all atoms using the Euclidean formula:
@@ -31,17 +28,13 @@ between all atoms using the Euclidean formula:
 $$d_{ij} = \sqrt{(x_{i} - x_{j})^2 + (y_{i} - y_{j})^2 + (z_{i} - z_{j})^2}$$
 
 This is performed in a nested loop for all atom pairs, where the
-distance from an atom to itself is set to 0. The resulting distances are
-stored in a dynamically allocated two-dimensional array for further use
-in the simulation.
+distance from an atom to itself is set to 0. The resulting distances are stored in a dynamically allocated two-dimensional array for further use in the simulation.
 
-Key Functions
--------------
+## Key Functions
 
 - `malloc_2d():`
 
-   Allocates memory for a 2D array, ensuring efficient storage and
-    access.
+   Allocates memory for a 2D array, ensuring efficient storage and access.
 
 - `read_Natoms():`
 
@@ -53,11 +46,9 @@ Key Functions
 
 - `compute_distances():`
 
-   Calculates and stores interatomic distances based on Cartesian
-    coordinates.
+   Calculates and stores interatomic distances based on Cartesian coordinates.
 
-Validation and Testing
-----------------------
+## Validation and Testing
 
 The implementation also includes error handling, such as:
 
@@ -68,4 +59,17 @@ The implementation also includes error handling, such as:
 -   Handling unexpected input file formats or missing data.
 
 The output is verified by printing the coordinates, masses, and
-calculated distances to the console for cross-checking.
+calculated distances to the console.
+
+### Testing
+You can test the program with the provided `test.sh` script:
+```bash
+./test.sh
+```
+This script will compile the program and run it with predefined test inputs.
+
+## How to Set Up and Run
+
+To compile and run the program, follow the steps described in the [INSTALL.md](INSTALL.md) file.
+
+
