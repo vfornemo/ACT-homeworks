@@ -120,3 +120,11 @@ void write_xyz(FILE* output_file, size_t Natoms, char* comment, double** coord) 
 
     fprintf(output_file, "\n");  // Add an empty line at the end
 }
+
+// Function to display the license notice
+void display_interactive_license_notice() {
+    printf("\n\nMolecular dynamics version 1.0, Copyright (C) 2025\n");
+    printf("This program comes with ABSOLUTELY NO WARRANTY.\n");
+    printf("This is a free software, and you are welcome to redistribute it\n");
+    printf("under certain conditions. For details, see the LICENSE file.\n\n\n");
+}

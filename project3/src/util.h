@@ -69,4 +69,9 @@ void compute_distances(size_t Natoms, double** coord, double** distance);
  */
 void write_xyz(FILE* output_file, size_t Natoms, char* comment, double** coord);
 
+/**
+ * @brief Displays a short license notice.
+ */
+void display_interactive_license_notice();
+
 #endif
