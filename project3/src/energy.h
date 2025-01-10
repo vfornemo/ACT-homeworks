@@ -1,5 +1,18 @@
+/**
+ * @file energy.h
+ * @author Yifan Jiang, Tianyi Gao
+ * @brief This module contains the functions for energy V, T, E, U as well as acceleration
+ * @version 1.0
+ * @date 2025-01-10
+ * 
+ * @copyright GNU Public License V3.0
+ * 
+ */
+
 #ifndef ENERGY_H
 #define ENERGY_H
+#define EPSILON 0.0661
+#define SIGMA 0.3345
 
 #include <stddef.h>
 #include <math.h>
@@ -19,6 +32,16 @@ double V(double epsilon, double sigma, size_t Natoms, double** distance);
 /// @return kinetic energy
 double T(size_t Natoms, double** velocity, double* mass);
 
+/**
+ * @brief compute acceleration
+ * @param Natoms number of atoms
+ * @param coord coordinates of atoms
+ * @param mass mass of atoms
+ * @param distance distances between atoms
+ * @param acceleration acceleration of atoms
+ */
+void compute_acc(size_t Natoms, double** coord, double* mass, double** distance, double** acceleration);
+
 /// @brief compute total energy
 /// @param Natoms number of atoms
 /// @param velocity velocities of atoms
@@ -27,13 +50,16 @@ double T(size_t Natoms, double** velocity, double* mass);
 /// @param sigma L-J coefficient
 /// @param distance distances between atoms
 /// @return total energy
-inline double E(size_t Natoms, double** velocity, double* mass, double epsilon, double sigma, double ** distance) {
-    return V(epsilon, sigma, Natoms, distance) + T(Natoms, velocity, mass);
-}
+double E(size_t Natoms, double** velocity, double* mass, double epsilon, double sigma, double ** distance);
 
-inline double U(double epsilon, double sigma, double r) {
-    return 24 * epsilon / r *(pow(sigma / r, 6.0) - 2 * pow(sigma / r, 12.0));
-}
+/**
+ * @brief compute acceleration intermediate U
+ * @param epsilon L-J coefficient
+ * @param sigma L-J coefficient
+ * @param r distance between atoms
+ * @return acceleration intermediate U
+ */
+double U(double epsilon, double sigma, double r);
 
 
 #endif

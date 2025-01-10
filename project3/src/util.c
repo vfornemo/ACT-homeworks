@@ -1,7 +1,19 @@
+/**
+ * @file util.c
+ * @author Lavínia Gabriela Teodoro Dos Santos, Tianyi Gao
+ * @brief This module contains the utility functions for memory allocation, reading input files, and writing output files
+ * @version 1.0
+ * @date 2025-01-10
+ * 
+ * @copyright GNU Public License V3.0
+ * 
+ */
+
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <math.h>  
+#include <math.h>
+#include "util.h"
 
 // Function to allocate 2D array mxn
 double** malloc_2d(size_t m, size_t n) {
@@ -63,6 +75,9 @@ void read_molecule(FILE* input_file, size_t* Natoms, double** coord, double* mas
         return;
     }
 
+    size_t x;
+    fscanf(input_file, "%zu", &x);  // Jump over the first line with the number of atoms
+
     // Read the coordinates and masses from the file
     for (size_t i = 0; i < *Natoms; i++) {
         if (fscanf(input_file, "%lf %lf %lf %lf", &coord[i][0], &coord[i][1], &coord[i][2], &mass[i]) != 4) {
@@ -89,58 +104,19 @@ void compute_distances(size_t Natoms, double** coord, double** distance) {
     }
 }
 
-int main() {
-    size_t Natoms;
-
-    // Read the number of atoms from the file first
-    FILE* input_file = fopen("inp.txt", "r");
-    if (!input_file) {
-        printf("Could not open file: inp.txt\n");
-        return 1; // Exit if file can't be opened
+void write_xyz(FILE* output_file, size_t Natoms, char* comment, double** coord) {
+    if (output_file == NULL) {
+        printf("Invalid file pointer to write xyz file\n");
+        return;
     }
 
-    // Read the number of atoms
-    Natoms = read_Natoms("inp.txt");  // This should return the number of atoms
+    // Write the number of atoms and a comment line
+    fprintf(output_file, "%zu\n%s\n", Natoms, comment);
 
-    if (Natoms == (size_t)-1) {
-        printf("Error reading number of atoms.\n");
-        fclose(input_file);
-        return 1; // Exit on error
-    }
-
-    // Allocate memory for the coordinates (3 values per atom)
-    double** coord = malloc_2d(Natoms, 3);  // Allocate memory for Natoms x 3 coordinates
-
-    // Allocate memory for the masses
-    double* mass = malloc(Natoms * sizeof(double)); // Allocate memory for Natoms masses
-
-    // Read the molecule data (coordinates and masses)
-    read_molecule(input_file, &Natoms, coord, mass);
-
-    // Print the read data to verify
+    // Write the coordinates of each atom
     for (size_t i = 0; i < Natoms; i++) {
-        printf("Atom %zu: Coordinates (%.2f, %.2f, %.2f), Mass: %.2f\n",
-               i + 1, coord[i][0], coord[i][1], coord[i][2], mass[i]);
+        fprintf(output_file, "Ar %.6f %.6f %.6f\n", coord[i][0], coord[i][1], coord[i][2]);
     }
 
-    // Allocate memory for the distance array (Natoms x Natoms)
-    double** distance = malloc_2d(Natoms, Natoms);
-
-    // Compute the internuclear distances
-    compute_distances(Natoms, coord, distance);
-
-    // Print the calculated distances
-    for (size_t i = 0; i < Natoms; i++) {
-        for (size_t j = 0; j < Natoms; j++) {
-            printf("Distance between atom %zu and atom %zu: %f\n", i+1, j+1, distance[i][j]);
-        }
-    }
-
-    // Free the allocated memory
-    free_2d(coord);
-    free(mass);
-    free_2d(distance);
-
-    fclose(input_file); // Close the file
-    return 0;
+    fprintf(output_file, "\n");  // Add an empty line at the end
 }

@@ -1,3 +1,14 @@
+/**
+ * @file energy.c
+ * @author Yifan Jiang, Tianyi Gao
+ * @brief This module contains the functions for energy V, T, E, U as well as acceleration
+ * @version 1.0
+ * @date 2025-01-10
+ * 
+ * @copyright GNU Public License V3.0
+ * 
+ */
+
 #include "energy.h"
 #include <math.h>
 
@@ -23,4 +34,27 @@ double T(size_t Natoms, double** velocity, double* mass) {
     return 0.5 * kin;
 }
 
+void compute_acc(size_t Natoms, double** coord, double* mass, double** distance, double** acceleration) {
+    for (size_t i = 0; i < Natoms; i++) {
+        acceleration[i][0] = 0.0;
+        acceleration[i][1] = 0.0;
+        acceleration[i][2] = 0.0;
+        for (size_t j = 0; j < Natoms; j++) {
+            if (i != j) {
+                double r = distance[i][j];
+                double force = U(EPSILON, SIGMA, r) / mass[j];
+                acceleration[i][0] -= force * (coord[i][0] - coord[j][0]) / r;
+                acceleration[i][1] -= force * (coord[i][1] - coord[j][1]) / r;
+                acceleration[i][2] -= force * (coord[i][2] - coord[j][2]) / r;
+            }
+        }
+    }
+}
 
+double E(size_t Natoms, double** velocity, double* mass, double epsilon, double sigma, double ** distance) {
+    return V(epsilon, sigma, Natoms, distance) + T(Natoms, velocity, mass);
+}
+
+double U(double epsilon, double sigma, double r) {
+    return 24 * epsilon / r *(pow(sigma / r, 6.0) - 2 * pow(sigma / r, 12.0));
+}

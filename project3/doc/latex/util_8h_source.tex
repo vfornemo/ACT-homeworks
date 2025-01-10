@@ -1,0 +1,28 @@
+\doxysection{util.\+h}
+\hypertarget{util_8h_source}{}\label{util_8h_source}\index{src/util.h@{src/util.h}}
+\mbox{\hyperlink{util_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ UTIL\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ UTIL\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <math.h>}\ \ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{double}**\ \mbox{\hyperlink{util_8h_a1fd5b11e0701507db8771d2d2f2288fe}{malloc\_2d}}(\textcolor{keywordtype}{size\_t}\ m,\ \textcolor{keywordtype}{size\_t}\ n);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{util_8h_a5247b386ebb83e9928a4d5e73f85a46e}{free\_2d}}(\textcolor{keywordtype}{double}**\ a);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{util_8h_a94c7043d7930186ab42d3b028bac851e}{read\_Natoms}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{util_8h_a9260ef0c23e8b623203904f146fc21c1}{read\_molecule}}(FILE*\ input\_file,\ \textcolor{keywordtype}{size\_t}*\ Natoms,\ \textcolor{keywordtype}{double}**\ coord,\ \textcolor{keywordtype}{double}*\ mass);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{util_8h_af61de0bbac9b7b5a1125329a5f73a06c}{compute\_distances}}(\textcolor{keywordtype}{size\_t}\ Natoms,\ \textcolor{keywordtype}{double}**\ coord,\ \textcolor{keywordtype}{double}**\ distance);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{util_8h_a1fcafc3864ec5b96644e9b88295bd514}{write\_xyz}}(FILE*\ output\_file,\ \textcolor{keywordtype}{size\_t}\ Natoms,\ \textcolor{keywordtype}{char}*\ comment,\ \textcolor{keywordtype}{double}**\ coord);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

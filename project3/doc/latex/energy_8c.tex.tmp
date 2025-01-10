@@ -1,0 +1,163 @@
+\doxysection{src/energy.c File Reference}
+\hypertarget{energy_8c}{}\label{energy_8c}\index{src/energy.c@{src/energy.c}}
+
+
+This module contains the functions for energy V, T, E, U as well as acceleration.  
+
+
+{\ttfamily \#include "{}energy.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+Include dependency graph for energy.\+c\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{energy_8c_a266b8211370a18872ee206a6e5a93880}{V}} (double epsilon, double sigma, size\+\_\+t Natoms, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}distance)
+\begin{DoxyCompactList}\small\item\em compute L-\/J potential \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{energy_8c_ab44190ed8f8d192903d71c188c388e0e}{T}} (size\+\_\+t Natoms, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}velocity, double \texorpdfstring{$\ast$}{*}mass)
+\begin{DoxyCompactList}\small\item\em compute kinetic energy \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{energy_8c_a086f7e51a890f6aecc9e311157d50955}{compute\+\_\+acc}} (size\+\_\+t Natoms, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}coord, double \texorpdfstring{$\ast$}{*}mass, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}distance, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}acceleration)
+\begin{DoxyCompactList}\small\item\em compute acceleration \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{energy_8c_a30599f18e0267764aec5b3819bf9c6ae}{E}} (size\+\_\+t Natoms, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}velocity, double \texorpdfstring{$\ast$}{*}mass, double epsilon, double sigma, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}distance)
+\begin{DoxyCompactList}\small\item\em compute total energy \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{energy_8c_a54568360147e9d2b9b7644ff89e7eed3}{U}} (double epsilon, double sigma, double r)
+\begin{DoxyCompactList}\small\item\em compute acceleration intermediate U \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This module contains the functions for energy V, T, E, U as well as acceleration. 
+
+\begin{DoxyAuthor}{Author}
+Yifan Jiang, Tianyi Gao 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/01-\/10
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+GNU Public License V3.\+0 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{energy_8c_a086f7e51a890f6aecc9e311157d50955}\label{energy_8c_a086f7e51a890f6aecc9e311157d50955} 
+\index{energy.c@{energy.c}!compute\_acc@{compute\_acc}}
+\index{compute\_acc@{compute\_acc}!energy.c@{energy.c}}
+\doxysubsubsection{\texorpdfstring{compute\_acc()}{compute\_acc()}}
+{\footnotesize\ttfamily void compute\+\_\+acc (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Natoms,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{coord,  }\item[{double \texorpdfstring{$\ast$}{*}}]{mass,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{distance,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{acceleration }\end{DoxyParamCaption})}
+
+
+
+compute acceleration 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Natoms} & number of atoms \\
+\hline
+{\em coord} & coordinates of atoms \\
+\hline
+{\em mass} & mass of atoms \\
+\hline
+{\em distance} & distances between atoms \\
+\hline
+{\em acceleration} & acceleration of atoms \\
+\hline
+\end{DoxyParams}
+\Hypertarget{energy_8c_a30599f18e0267764aec5b3819bf9c6ae}\label{energy_8c_a30599f18e0267764aec5b3819bf9c6ae} 
+\index{energy.c@{energy.c}!E@{E}}
+\index{E@{E}!energy.c@{energy.c}}
+\doxysubsubsection{\texorpdfstring{E()}{E()}}
+{\footnotesize\ttfamily double E (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Natoms,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{velocity,  }\item[{double \texorpdfstring{$\ast$}{*}}]{mass,  }\item[{double}]{epsilon,  }\item[{double}]{sigma,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{distance }\end{DoxyParamCaption})}
+
+
+
+compute total energy 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Natoms} & number of atoms \\
+\hline
+{\em velocity} & velocities of atoms \\
+\hline
+{\em mass} & mass of atoms \\
+\hline
+{\em epsilon} & L-\/J coefficient \\
+\hline
+{\em sigma} & L-\/J coefficient \\
+\hline
+{\em distance} & distances between atoms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+total energy 
+\end{DoxyReturn}
+\Hypertarget{energy_8c_ab44190ed8f8d192903d71c188c388e0e}\label{energy_8c_ab44190ed8f8d192903d71c188c388e0e} 
+\index{energy.c@{energy.c}!T@{T}}
+\index{T@{T}!energy.c@{energy.c}}
+\doxysubsubsection{\texorpdfstring{T()}{T()}}
+{\footnotesize\ttfamily double T (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Natoms,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{velocity,  }\item[{double \texorpdfstring{$\ast$}{*}}]{mass }\end{DoxyParamCaption})}
+
+
+
+compute kinetic energy 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Natoms} & number of atoms \\
+\hline
+{\em velocity} & velocities of atoms \\
+\hline
+{\em mass} & mass of atoms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+kinetic energy 
+\end{DoxyReturn}
+\Hypertarget{energy_8c_a54568360147e9d2b9b7644ff89e7eed3}\label{energy_8c_a54568360147e9d2b9b7644ff89e7eed3} 
+\index{energy.c@{energy.c}!U@{U}}
+\index{U@{U}!energy.c@{energy.c}}
+\doxysubsubsection{\texorpdfstring{U()}{U()}}
+{\footnotesize\ttfamily double U (\begin{DoxyParamCaption}\item[{double}]{epsilon,  }\item[{double}]{sigma,  }\item[{double}]{r }\end{DoxyParamCaption})}
+
+
+
+compute acceleration intermediate U 
+
+
+\begin{DoxyParams}{Parameters}
+{\em epsilon} & L-\/J coefficient \\
+\hline
+{\em sigma} & L-\/J coefficient \\
+\hline
+{\em r} & distance between atoms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+acceleration intermediate U 
+\end{DoxyReturn}
+\Hypertarget{energy_8c_a266b8211370a18872ee206a6e5a93880}\label{energy_8c_a266b8211370a18872ee206a6e5a93880} 
+\index{energy.c@{energy.c}!V@{V}}
+\index{V@{V}!energy.c@{energy.c}}
+\doxysubsubsection{\texorpdfstring{V()}{V()}}
+{\footnotesize\ttfamily double V (\begin{DoxyParamCaption}\item[{double}]{epsilon,  }\item[{double}]{sigma,  }\item[{size\+\_\+t}]{Natoms,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{distance }\end{DoxyParamCaption})}
+
+
+
+compute L-\/J potential 
+
+
+\begin{DoxyParams}{Parameters}
+{\em epsilon} & L-\/J coefficient \\
+\hline
+{\em sigma} & L-\/J coefficient \\
+\hline
+{\em Natoms} & number of atoms \\
+\hline
+{\em distance} & distances between atoms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+potiential energy 
+\end{DoxyReturn}

@@ -38,20 +38,20 @@ in the simulation.
 Key Functions
 -------------
 
-`malloc_2d():`
+- `malloc_2d():`
 
    Allocates memory for a 2D array, ensuring efficient storage and
     access.
 
-`read_Natoms():`
+- `read_Natoms():`
 
    Reads the total number of atoms from the input file.
 
-`read_molecule():`
+- `read_molecule():`
 
    Reads atomic coordinates and masses into allocated arrays.
 
-`compute_distances():`
+- `compute_distances():`
 
    Calculates and stores interatomic distances based on Cartesian
     coordinates.

@@ -1,0 +1,161 @@
+\doxysection{src/util.c File Reference}
+\hypertarget{util_8c}{}\label{util_8c}\index{src/util.c@{src/util.c}}
+
+
+This module contains the utility functions for memory allocation, reading input files, and writing output files.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include "{}util.\+h"{}}\newline
+Include dependency graph for util.\+c\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{util_8c_a1fd5b11e0701507db8771d2d2f2288fe}{malloc\+\_\+2d}} (size\+\_\+t m, size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Function to allocate 2D array mxn. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{util_8c_a5247b386ebb83e9928a4d5e73f85a46e}{free\+\_\+2d}} (double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Function to free the memory for 2D arrays after use. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{util_8c_a94c7043d7930186ab42d3b028bac851e}{read\+\_\+\+Natoms}} (const char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Function to read the number of atoms from input file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{util_8c_a9260ef0c23e8b623203904f146fc21c1}{read\+\_\+molecule}} (FILE \texorpdfstring{$\ast$}{*}input\+\_\+file, size\+\_\+t \texorpdfstring{$\ast$}{*}Natoms, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}coord, double \texorpdfstring{$\ast$}{*}mass)
+\begin{DoxyCompactList}\small\item\em Function to read number of atoms, coordinates, and masses. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{util_8c_af61de0bbac9b7b5a1125329a5f73a06c}{compute\+\_\+distances}} (size\+\_\+t Natoms, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}coord, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}distance)
+\begin{DoxyCompactList}\small\item\em Function to evaluate internuclear distances. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{util_8c_a1fcafc3864ec5b96644e9b88295bd514}{write\+\_\+xyz}} (FILE \texorpdfstring{$\ast$}{*}output\+\_\+file, size\+\_\+t Natoms, char \texorpdfstring{$\ast$}{*}comment, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}coord)
+\begin{DoxyCompactList}\small\item\em Function to write the coordinates to an xyz file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This module contains the utility functions for memory allocation, reading input files, and writing output files. 
+
+\begin{DoxyAuthor}{Author}
+Lavínia Gabriela Teodoro Dos Santos, Tianyi Gao 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/01-\/10
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+GNU Public License V3.\+0 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{util_8c_af61de0bbac9b7b5a1125329a5f73a06c}\label{util_8c_af61de0bbac9b7b5a1125329a5f73a06c} 
+\index{util.c@{util.c}!compute\_distances@{compute\_distances}}
+\index{compute\_distances@{compute\_distances}!util.c@{util.c}}
+\doxysubsubsection{\texorpdfstring{compute\_distances()}{compute\_distances()}}
+{\footnotesize\ttfamily void compute\+\_\+distances (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Natoms,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{coord,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{distance }\end{DoxyParamCaption})}
+
+
+
+Function to evaluate internuclear distances. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Natoms} & number of atoms \\
+\hline
+{\em coord} & pointer to the coordinates 2D array \\
+\hline
+{\em distance} & pointer to the distances 2D array \\
+\hline
+\end{DoxyParams}
+\Hypertarget{util_8c_a5247b386ebb83e9928a4d5e73f85a46e}\label{util_8c_a5247b386ebb83e9928a4d5e73f85a46e} 
+\index{util.c@{util.c}!free\_2d@{free\_2d}}
+\index{free\_2d@{free\_2d}!util.c@{util.c}}
+\doxysubsubsection{\texorpdfstring{free\_2d()}{free\_2d()}}
+{\footnotesize\ttfamily void free\+\_\+2d (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})}
+
+
+
+Function to free the memory for 2D arrays after use. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & pointer to the 2D array \\
+\hline
+\end{DoxyParams}
+\Hypertarget{util_8c_a1fd5b11e0701507db8771d2d2f2288fe}\label{util_8c_a1fd5b11e0701507db8771d2d2f2288fe} 
+\index{util.c@{util.c}!malloc\_2d@{malloc\_2d}}
+\index{malloc\_2d@{malloc\_2d}!util.c@{util.c}}
+\doxysubsubsection{\texorpdfstring{malloc\_2d()}{malloc\_2d()}}
+{\footnotesize\ttfamily double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} malloc\+\_\+2d (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{m,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+Function to allocate 2D array mxn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m,n} & dimensions of the 2D array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} pointer to the 2D array 
+\end{DoxyReturn}
+\Hypertarget{util_8c_a9260ef0c23e8b623203904f146fc21c1}\label{util_8c_a9260ef0c23e8b623203904f146fc21c1} 
+\index{util.c@{util.c}!read\_molecule@{read\_molecule}}
+\index{read\_molecule@{read\_molecule}!util.c@{util.c}}
+\doxysubsubsection{\texorpdfstring{read\_molecule()}{read\_molecule()}}
+{\footnotesize\ttfamily void read\+\_\+molecule (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{input\+\_\+file,  }\item[{size\+\_\+t \texorpdfstring{$\ast$}{*}}]{Natoms,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{coord,  }\item[{double \texorpdfstring{$\ast$}{*}}]{mass }\end{DoxyParamCaption})}
+
+
+
+Function to read number of atoms, coordinates, and masses. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+file} & file pointer to the input file \\
+\hline
+{\em Natoms} & number of atoms \\
+\hline
+{\em coord} & pointer to the coordinates 2D array \\
+\hline
+{\em mass} & pointer to the masses array \\
+\hline
+\end{DoxyParams}
+\Hypertarget{util_8c_a94c7043d7930186ab42d3b028bac851e}\label{util_8c_a94c7043d7930186ab42d3b028bac851e} 
+\index{util.c@{util.c}!read\_Natoms@{read\_Natoms}}
+\index{read\_Natoms@{read\_Natoms}!util.c@{util.c}}
+\doxysubsubsection{\texorpdfstring{read\_Natoms()}{read\_Natoms()}}
+{\footnotesize\ttfamily size\+\_\+t read\+\_\+\+Natoms (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename }\end{DoxyParamCaption})}
+
+
+
+Function to read the number of atoms from input file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & name of the input file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t number of atoms 
+\end{DoxyReturn}
+\Hypertarget{util_8c_a1fcafc3864ec5b96644e9b88295bd514}\label{util_8c_a1fcafc3864ec5b96644e9b88295bd514} 
+\index{util.c@{util.c}!write\_xyz@{write\_xyz}}
+\index{write\_xyz@{write\_xyz}!util.c@{util.c}}
+\doxysubsubsection{\texorpdfstring{write\_xyz()}{write\_xyz()}}
+{\footnotesize\ttfamily void write\+\_\+xyz (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{output\+\_\+file,  }\item[{size\+\_\+t}]{Natoms,  }\item[{char \texorpdfstring{$\ast$}{*}}]{comment,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{coord }\end{DoxyParamCaption})}
+
+
+
+Function to write the coordinates to an xyz file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output\+\_\+file} & file pointer to the output file \\
+\hline
+{\em Natoms} & number of atoms \\
+\hline
+{\em comment} & comment line for the xyz file, including cycle number, kinetic energy, potential energy, and total energy \\
+\hline
+{\em coord} & pointer to the coordinates 2D array \\
+\hline
+\end{DoxyParams}
