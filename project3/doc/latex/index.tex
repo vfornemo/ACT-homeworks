@@ -1,0 +1,44 @@
+\chapter{Molecular Dynamics Simulation}
+\hypertarget{index}{}\label{index}\index{Molecular Dynamics Simulation@{Molecular Dynamics Simulation}}
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+ \# A Molecular Dynamics Code\hypertarget{index_autotoc_md0}{}\doxysection{\texorpdfstring{Molecular Dynamics\+: Input Reading and Distance Calculation}{Molecular Dynamics: Input Reading and Distance Calculation}}\label{index_autotoc_md0}
+\hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{Input Handling}{Input Handling}}\label{index_autotoc_md1}
+The first part of the program focuses on reading the input data required for the molecular dynamics simulation. The input file {\ttfamily inp.\+txt} contains the number of atoms and their respective Cartesian coordinates and masses. With these, the following steps are implemented\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Read Number of Atoms\+:}} The function {\ttfamily \doxylink{util_8c_a94c7043d7930186ab42d3b028bac851e}{read\+\_\+\+Natoms()}} reads the total number of atoms specified in the first line of the input file.
+\item {\bfseries{Memory Allocation\+:}} Using the function {\ttfamily \doxylink{util_8c_a1fd5b11e0701507db8771d2d2f2288fe}{malloc\+\_\+2d()}}, memory is allocated dynamically for a two-\/dimensional array to store atomic coordinates (\$x, y, z\$) and another one for interatomic distances.
+\item {\bfseries{Input\+:}} The {\ttfamily \doxylink{util_8c_a9260ef0c23e8b623203904f146fc21c1}{read\+\_\+molecule()}} function reads the atomic coordinates and masses from the file and stores them in pre-\/allocated arrays.
+\end{DoxyItemize}\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Distance Calculation}{Distance Calculation}}\label{index_autotoc_md2}
+The {\ttfamily \doxylink{util_8c_af61de0bbac9b7b5a1125329a5f73a06c}{compute\+\_\+distances()}} function calculates the pairwise distances between all atoms using the Euclidean formula\+:
+
+\$\$d\+\_\+\{ij\} = \textbackslash{}sqrt\{(x\+\_\+\{i\} -\/ x\+\_\+\{j\})\texorpdfstring{$^\wedge$}{\string^}2 + (y\+\_\+\{i\} -\/ y\+\_\+\{j\})\texorpdfstring{$^\wedge$}{\string^}2 + (z\+\_\+\{i\} -\/ z\+\_\+\{j\})\texorpdfstring{$^\wedge$}{\string^}2\}\$\$
+
+This is performed in a nested loop for all atom pairs, where the distance from an atom to itself is set to 0. The resulting distances are stored in a dynamically allocated two-\/dimensional array for further use in the simulation.\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{Key Functions}{Key Functions}}\label{index_autotoc_md3}
+{\ttfamily \doxylink{util_8c_a1fd5b11e0701507db8771d2d2f2288fe}{malloc\+\_\+2d()}\+:}
+
+Allocates memory for a 2D array, ensuring efficient storage and access.
+
+{\ttfamily \doxylink{util_8c_a94c7043d7930186ab42d3b028bac851e}{read\+\_\+\+Natoms()}\+:}
+
+Reads the total number of atoms from the input file.
+
+{\ttfamily \doxylink{util_8c_a9260ef0c23e8b623203904f146fc21c1}{read\+\_\+molecule()}\+:}
+
+Reads atomic coordinates and masses into allocated arrays.
+
+{\ttfamily \doxylink{util_8c_af61de0bbac9b7b5a1125329a5f73a06c}{compute\+\_\+distances()}\+:}
+
+Calculates and stores interatomic distances based on Cartesian coordinates.\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Validation and Testing}{Validation and Testing}}\label{index_autotoc_md4}
+The implementation also includes error handling, such as\+:
+
+
+\begin{DoxyItemize}
+\item Checking for file-\/opening errors.
+\item Validating the successful allocation of memory.
+\item Handling unexpected input file formats or missing data.
+\end{DoxyItemize}
+
+The output is verified by printing the coordinates, masses, and calculated distances to the console for cross-\/checking. 

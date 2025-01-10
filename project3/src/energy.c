@@ -1,3 +1,14 @@
+/**
+ * @file energy.c
+ * @author Yifan Jiang, Tianyi Gao
+ * @brief This module contains the functions for energy V, T, E, U as well as acceleration
+ * @version 1.0
+ * @date 2025-01-10
+ * 
+ * @copyright GNU Public License V3.0
+ * 
+ */
+
 #include "energy.h"
 #include <math.h>
 

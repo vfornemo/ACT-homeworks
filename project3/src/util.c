@@ -1,3 +1,14 @@
+/**
+ * @file util.c
+ * @author Lavínia Gabriela Teodoro Dos Santos, Tianyi Gao
+ * @brief This module contains the utility functions for memory allocation, reading input files, and writing output files
+ * @version 1.0
+ * @date 2025-01-10
+ * 
+ * @copyright GNU Public License V3.0
+ * 
+ */
+
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>

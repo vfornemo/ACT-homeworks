@@ -1,0 +1,27 @@
+\doxysection{energy.\+h}
+\hypertarget{energy_8h_source}{}\label{energy_8h_source}\index{src/energy.h@{src/energy.h}}
+\mbox{\hyperlink{energy_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ ENERGY\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ ENERGY\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ EPSILON\ 0.0661}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ SIGMA\ 0.3345}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{energy_8h_a266b8211370a18872ee206a6e5a93880}{V}}(\textcolor{keywordtype}{double}\ epsilon,\ \textcolor{keywordtype}{double}\ sigma,\ \textcolor{keywordtype}{size\_t}\ Natoms,\ \textcolor{keywordtype}{double}**\ distance);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{energy_8h_ab44190ed8f8d192903d71c188c388e0e}{T}}(\textcolor{keywordtype}{size\_t}\ Natoms,\ \textcolor{keywordtype}{double}**\ velocity,\ \textcolor{keywordtype}{double}*\ mass);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{energy_8h_a086f7e51a890f6aecc9e311157d50955}{compute\_acc}}(\textcolor{keywordtype}{size\_t}\ Natoms,\ \textcolor{keywordtype}{double}**\ coord,\ \textcolor{keywordtype}{double}*\ mass,\ \textcolor{keywordtype}{double}**\ distance,\ \textcolor{keywordtype}{double}**\ acceleration);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{energy_8h_a30599f18e0267764aec5b3819bf9c6ae}{E}}(\textcolor{keywordtype}{size\_t}\ Natoms,\ \textcolor{keywordtype}{double}**\ velocity,\ \textcolor{keywordtype}{double}*\ mass,\ \textcolor{keywordtype}{double}\ epsilon,\ \textcolor{keywordtype}{double}\ sigma,\ \textcolor{keywordtype}{double}\ **\ distance);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{energy_8h_a54568360147e9d2b9b7644ff89e7eed3}{U}}(\textcolor{keywordtype}{double}\ epsilon,\ \textcolor{keywordtype}{double}\ sigma,\ \textcolor{keywordtype}{double}\ r);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

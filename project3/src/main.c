@@ -1,10 +1,21 @@
+/**
+ * @file main.c
+ * @author Lavínia Gabriela Teodoro Dos Santos, Yifan Jiang, Tianyi Gao
+
+ * @brief This program reads from the input file and performs molecular dynamics simulation
+ * @version 1.0
+ * @date 2025-01-10
+ * 
+ * @copyright GNU Public License V3.0
+ * 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "util.h"
 #include "energy.h"
 
-
-
+//! Application entry
 int main() {
     size_t Natoms;
 
